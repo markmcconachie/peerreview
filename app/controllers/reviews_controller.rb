@@ -16,8 +16,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
 
-    role = @review.member.role
-    teamMembers = Member.where(team_id: @review.member.team_id)
+    # role = @review.member.role
+    # teamMembers = Member.where(team_id: @review.member.team_id)
     teamMembers.each do | member |
       questions = Question.where(fromrole: role, forrole: member.role)
       questions.each do | question |
